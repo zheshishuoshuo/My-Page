@@ -91,4 +91,3 @@ npm run dev
 3. Write 3 to 5 real journal posts
 4. Expand `src/pages/tools.astro` into the set of links you actually use every day
 5. Tweak styles and colors only after the real content is in place
-# My-Page

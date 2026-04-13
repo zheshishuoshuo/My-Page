@@ -1,0 +1,10 @@
+node_modules/
+.astro/
+dist/
+.DS_Store
+
+# local editor / OS noise
+.vscode/settings.json
+
+# accidental scratch files
+g

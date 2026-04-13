@@ -1,5 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
+import { getBlogPermalink, getPermalink } from '~/utils/permalinks';
 
 import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
@@ -22,9 +23,9 @@ const metadata = {
       {
         variant: 'primary',
         text: 'Browse Journal',
-        href: '/journal',
+        href: getBlogPermalink(),
       },
-      { text: 'Open Toolbox', href: '/tools' },
+      { text: 'Open Toolbox', href: getPermalink('/tools') },
     ]}
   >
     <Fragment slot="title">
@@ -204,8 +205,8 @@ const metadata = {
     title="The best next step is to replace the placeholders with your real work"
     subtitle="Start by updating your research directions and bio, then write your first real journal entry, and slowly grow the toolbox. The site will quickly stop feeling like a template and start feeling like your workspace."
     actions={[
-      { text: 'Research Profile', href: '/about' },
-      { text: 'Toolbox', href: '/tools' },
+      { text: 'Research Profile', href: getPermalink('/about') },
+      { text: 'Toolbox', href: getPermalink('/tools') },
     ]}
   />
 </Layout>

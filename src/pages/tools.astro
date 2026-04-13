@@ -1,5 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
+import { getBlogPermalink, getPermalink } from '~/utils/permalinks';
 import Hero from '~/components/widgets/Hero.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Content from '~/components/widgets/Content.astro';
@@ -13,8 +14,8 @@ const metadata = {
   <Hero
     tagline="Research Tools"
     actions={[
-      { text: 'Open Journal', href: '/journal', variant: 'primary' },
-      { text: 'Research Profile', href: '/about' },
+      { text: 'Open Journal', href: getBlogPermalink(), variant: 'primary' },
+      { text: 'Research Profile', href: getPermalink('/about') },
     ]}
   >
     <Fragment slot="title">Collect your most-used databases, analysis tools, and writing links in one place</Fragment>
