@@ -1,13 +1,131 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import { getBlogPermalink, getPermalink } from '~/utils/permalinks';
 import Hero from '~/components/widgets/Hero.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Content from '~/components/widgets/Content.astro';
+import { Icon } from 'astro-icon/components';
+import { getBlogPermalink, getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Toolbox',
 };
+
+const sections = [
+  {
+    id: 'literature',
+    eyebrow: 'Query',
+    title: 'Literature and databases',
+    description: 'The places you repeatedly open for papers, catalogs, source metadata, and sample construction.',
+    items: [
+      {
+        title: 'NASA ADS',
+        description: 'Core literature search, abstract browsing, citation tracing, and paper discovery.',
+        href: 'https://ui.adsabs.harvard.edu/',
+        icon: 'tabler:file-text',
+      },
+      {
+        title: 'SIMBAD',
+        description: 'Quick lookup for object information, aliases, references, and cross-identifications.',
+        href: 'https://simbad.cds.unistra.fr/simbad/',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'VizieR',
+        description: 'Catalog access and cross-matching entry point for table-heavy work.',
+        href: 'https://vizier.cds.unistra.fr/',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'arXiv astro-ph',
+        description: 'A clean way to keep up with fresh preprints and new directions.',
+        href: 'https://arxiv.org/archive/astro-ph',
+        icon: 'tabler:notebook',
+      },
+    ],
+  },
+  {
+    id: 'inspection',
+    eyebrow: 'Inspect',
+    title: 'Target checks and visualization',
+    description: 'Useful during observing preparation, field inspection, and quick validation of target context.',
+    items: [
+      {
+        title: 'ESASky',
+        description: 'Browse multi-wavelength images, mission coverage, and archive products.',
+        href: 'https://sky.esa.int/',
+        icon: 'tabler:world-latitude',
+      },
+      {
+        title: 'Aladin Lite',
+        description: 'Overlay images and catalogs to inspect field environment and nearby sources.',
+        href: 'https://aladin.cds.unistra.fr/AladinLite/',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Stellarium Web',
+        description: 'Quick sky-region and target-position checks with time-dependent context.',
+        href: 'https://stellarium-web.org/',
+        icon: 'tabler:star',
+      },
+      {
+        title: 'MAST Portal',
+        description: 'A useful archive hub if you work with HST, TESS, or JWST data.',
+        href: 'https://mast.stsci.edu/portal/Mashup/Clients/Mast/Portal.html',
+        icon: 'tabler:database',
+      },
+    ],
+  },
+  {
+    id: 'analysis',
+    eyebrow: 'Analyze',
+    title: 'Analysis tools',
+    description: 'The libraries and software that actually carry the work from raw data to interpretation.',
+    items: [
+      {
+        title: 'Astropy',
+        description: 'Coordinates, time, tables, units, fitting, and the core astronomy Python ecosystem.',
+        href: 'https://docs.astropy.org/',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Lightkurve',
+        description: 'Especially useful for TESS and Kepler light-curve workflows.',
+        href: 'https://lightkurve.github.io/lightkurve/',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'TOPCAT',
+        description: 'Fast table inspection, cross-matching, and exploratory visualization.',
+        href: 'https://www.star.bris.ac.uk/~mbt/topcat/',
+        icon: 'tabler:table',
+      },
+    ],
+  },
+  {
+    id: 'writing',
+    eyebrow: 'Write',
+    title: 'Writing and collaboration',
+    description: 'Keep paper drafting, references, and code collaboration together so the final workflow stays compact.',
+    items: [
+      {
+        title: 'Overleaf',
+        description: 'Writing papers, reports, and collaboration drafts.',
+        href: 'https://www.overleaf.com/',
+        icon: 'tabler:pencil-star',
+      },
+      {
+        title: 'Zotero',
+        description: 'Reference management and reading organization.',
+        href: 'https://www.zotero.org/',
+        icon: 'tabler:notebook',
+      },
+      {
+        title: 'GitHub',
+        description: 'Code, scripts, notes, and versioned research assets.',
+        href: 'https://github.com/',
+        icon: 'tabler:brand-github',
+      },
+    ],
+  },
+];
 ---
 
 <Layout metadata={metadata}>
@@ -18,11 +136,11 @@ const metadata = {
       { text: 'Research Profile', href: getPermalink('/about') },
     ]}
   >
-    <Fragment slot="title">Collect your most-used databases, analysis tools, and writing links in one place</Fragment>
+    <Fragment slot="title">A cleaner tools workspace with section navigation on the left</Fragment>
 
     <Fragment slot="subtitle">
-      This page works best when it is organized around your workflow rather than around random website names. That makes
-      it faster to use during literature search, target checking, data reduction, and writing.
+      This page is now organized for actual use: the left side is a section navigator, and the right side keeps the
+      databases, viewers, analysis tools, and writing links grouped by workflow.
     </Fragment>
 
     <Fragment slot="bg">
@@ -30,139 +148,94 @@ const metadata = {
     </Fragment>
   </Hero>
 
-  <Features2
-    title="Literature and databases"
-    subtitle="Start with the sites you open repeatedly, especially for literature search, source lookup, and catalog work."
-    columns={2}
-    items={[
-      {
-        title: 'NASA ADS',
-        description: 'A core entry point for astronomy literature, citations, and paper abstracts.',
-        icon: 'tabler:file-text',
-        callToAction: { text: 'Open', href: 'https://ui.adsabs.harvard.edu/' },
-      },
-      {
-        title: 'SIMBAD',
-        description: 'Quickly check object information, aliases, references, and cross-identifications.',
-        icon: 'tabler:search',
-        callToAction: { text: 'Open', href: 'https://simbad.cds.unistra.fr/simbad/' },
-      },
-      {
-        title: 'VizieR',
-        description: 'Useful for catalog access, cross-matching, and sample building.',
-        icon: 'tabler:database',
-        callToAction: { text: 'Open', href: 'https://vizier.cds.unistra.fr/' },
-      },
-      {
-        title: 'arXiv astro-ph',
-        description: 'A simple place to track fresh preprints and keep up with new directions.',
-        icon: 'tabler:notebook',
-        callToAction: { text: 'Open', href: 'https://arxiv.org/archive/astro-ph' },
-      },
-    ]}
-  />
-
-  <Features2
-    title="Target checks and visualization"
-    subtitle="These links fit naturally into observing preparation, target validation, and field inspection."
-    columns={2}
-    items={[
-      {
-        title: 'ESASky',
-        description: 'Browse multi-wavelength sky images, mission coverage, and archive products for fast reconnaissance.',
-        icon: 'tabler:world-latitude',
-        callToAction: { text: 'Open', href: 'https://sky.esa.int/' },
-      },
-      {
-        title: 'Aladin Lite',
-        description: 'Overlay catalogs and images to inspect target position, nearby sources, and field environment.',
-        icon: 'tabler:search',
-        callToAction: { text: 'Open', href: 'https://aladin.cds.unistra.fr/AladinLite/' },
-      },
-      {
-        title: 'Stellarium Web',
-        description: 'Useful for quick checks of sky regions, target positions, and time-dependent sky context.',
-        icon: 'tabler:star',
-        callToAction: { text: 'Open', href: 'https://stellarium-web.org/' },
-      },
-      {
-        title: 'MAST Portal',
-        description: 'If you often use HST, TESS, or JWST data, it helps to pin the archive entry here.',
-        icon: 'tabler:database',
-        callToAction: { text: 'Open', href: 'https://mast.stsci.edu/portal/Mashup/Clients/Mast/Portal.html' },
-      },
-    ]}
-  />
-
-  <Content
-    tagline="Analysis Stack"
-    title="Analysis tools are most useful when you also note how you use them"
-    items={[
-      {
-        title: 'Astropy',
-        description: 'A foundational astronomy Python ecosystem covering coordinates, time, tables, fitting, and more.',
-        callToAction: { text: 'Docs', href: 'https://docs.astropy.org/' },
-      },
-      {
-        title: 'Lightkurve',
-        description: 'Helpful for TESS and Kepler light-curve work, especially if your notes involve time-domain analysis.',
-        callToAction: { text: 'Docs', href: 'https://lightkurve.github.io/lightkurve/' },
-      },
-      {
-        title: 'TOPCAT',
-        description: 'Efficient for table inspection, cross-matching, and quick visualization, especially when paired with journal notes.',
-        callToAction: { text: 'Site', href: 'https://www.star.bris.ac.uk/~mbt/topcat/' },
-      },
-    ]}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Do not only save links. Add one line about what each tool does for you.</h3>
-      When you come back months later, that note will help you remember not just where the tool lives, but why it belongs in your workflow.
-    </Fragment>
-
-    <Fragment slot="image">
-      <div class="rounded-3xl border border-slate-200 bg-white/85 p-8 dark:border-slate-800 dark:bg-slate-900/80">
-        <div class="space-y-4">
-          <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-950">
-            <div class="text-sm uppercase tracking-[0.2em] text-slate-500">Query</div>
-            <div class="mt-2 font-semibold">ADS / SIMBAD / VizieR</div>
+  <section class="relative max-w-7xl mx-auto px-4 sm:px-6 pb-16 md:pb-24">
+    <div class="grid gap-8 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-12">
+      <aside class="lg:sticky lg:top-24 lg:self-start">
+        <div class="rounded-3xl border border-slate-200 bg-white/85 p-5 shadow-[0_20px_60px_rgba(15,23,42,0.06)] dark:border-slate-800 dark:bg-slate-900/85">
+          <div class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">
+            Toolbox Nav
           </div>
-          <div class="rounded-2xl border border-sky-100 bg-sky-50 p-4 dark:border-slate-800 dark:bg-slate-950">
-            <div class="text-sm uppercase tracking-[0.2em] text-sky-700 dark:text-sky-300">Inspect</div>
-            <div class="mt-2 font-semibold">ESASky / Aladin / Stellarium</div>
-          </div>
-          <div class="rounded-2xl border border-amber-100 bg-amber-50 p-4 dark:border-slate-800 dark:bg-slate-950">
-            <div class="text-sm uppercase tracking-[0.2em] text-amber-700 dark:text-amber-300">Analyze</div>
-            <div class="mt-2 font-semibold">Astropy / Lightkurve / TOPCAT</div>
+          <nav class="mt-4">
+            <ul class="flex gap-3 overflow-x-auto lg:block lg:space-y-2">
+              {
+                sections.map((section) => (
+                  <li class="shrink-0">
+                    <a
+                      href={`#${section.id}`}
+                      class="flex min-w-max items-center rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700 transition hover:border-sky-300 hover:bg-sky-50 hover:text-sky-900 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200 dark:hover:border-sky-800 dark:hover:bg-slate-900"
+                    >
+                      <span class="mr-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-white text-sky-700 shadow-sm dark:bg-slate-900 dark:text-sky-300">
+                        <Icon
+                          name={
+                            section.id === 'literature'
+                              ? 'tabler:file-text'
+                              : section.id === 'inspection'
+                                ? 'tabler:world-latitude'
+                                : section.id === 'analysis'
+                                  ? 'tabler:code'
+                                  : 'tabler:pencil-star'
+                          }
+                          class="h-4 w-4"
+                        />
+                      </span>
+                      {section.title}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </nav>
+          <div class="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300">
+            Keep this page short enough to scan, and put detailed usage notes in your journal posts.
           </div>
         </div>
-      </div>
-    </Fragment>
-  </Content>
+      </aside>
 
-  <Features2
-    title="Writing and collaboration"
-    subtitle="Keeping paper writing, references, and code collaboration together works especially well over the long term."
-    columns={3}
-    items={[
-      {
-        title: 'Overleaf',
-        description: 'A paper and report writing entry point.',
-        icon: 'tabler:pencil-star',
-        callToAction: { text: 'Open', href: 'https://www.overleaf.com/' },
-      },
-      {
-        title: 'Zotero',
-        description: 'Reference management and reading organization.',
-        icon: 'tabler:notebook',
-        callToAction: { text: 'Open', href: 'https://www.zotero.org/' },
-      },
-      {
-        title: 'GitHub',
-        description: 'A common home for code, scripts, and note repositories.',
-        icon: 'tabler:brand-github',
-        callToAction: { text: 'Open', href: 'https://github.com/' },
-      },
-    ]}
-  />
+      <div class="space-y-8">
+        {
+          sections.map((section) => (
+            <section
+              id={section.id}
+              class="scroll-mt-24 rounded-[2rem] border border-slate-200 bg-white/88 p-6 shadow-[0_20px_80px_rgba(15,23,42,0.06)] dark:border-slate-800 dark:bg-slate-900/88 md:p-8"
+            >
+              <div class="mb-6">
+                <div class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-700 dark:text-sky-300">
+                  {section.eyebrow}
+                </div>
+                <h2 class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
+                  {section.title}
+                </h2>
+                <p class="mt-3 max-w-3xl text-base text-slate-600 dark:text-slate-300">{section.description}</p>
+              </div>
+
+              <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                {
+                  section.items.map((item) => (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="group rounded-3xl border border-slate-200 bg-slate-50 p-5 transition hover:-translate-y-0.5 hover:border-sky-300 hover:bg-white hover:shadow-[0_18px_50px_rgba(14,165,233,0.12)] dark:border-slate-800 dark:bg-slate-950 dark:hover:border-sky-800 dark:hover:bg-slate-900"
+                    >
+                      <div class="flex items-start justify-between gap-3">
+                        <span class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-sky-700 shadow-sm dark:bg-slate-900 dark:text-sky-300">
+                          <Icon name={item.icon} class="h-5 w-5" />
+                        </span>
+                        <Icon
+                          name="tabler:arrow-up-right"
+                          class="h-5 w-5 text-slate-400 transition group-hover:text-sky-600 dark:group-hover:text-sky-300"
+                        />
+                      </div>
+                      <h3 class="mt-4 text-lg font-semibold text-slate-900 dark:text-slate-100">{item.title}</h3>
+                      <p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">{item.description}</p>
+                    </a>
+                  ))
+                }
+              </div>
+            </section>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 </Layout>
