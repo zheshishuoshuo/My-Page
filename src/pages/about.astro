@@ -1,0 +1,127 @@
+---
+import Hero from '~/components/widgets/Hero.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Content from '~/components/widgets/Content.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Research Profile',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero tagline="Research Profile">
+    <Fragment slot="title">Use this page for your background, research direction, and collaboration entry points</Fragment>
+
+    <Fragment slot="subtitle">
+      This page has been turned from a template demo into an academic profile skeleton. You can now replace the placeholder
+      sections with your real research interests, education, active projects, and publication list.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.2),transparent_22%),linear-gradient(180deg,rgba(15,23,42,0.04),transparent_70%)] dark:bg-[radial-gradient(circle_at_top_right,rgba(96,165,250,0.2),transparent_22%),linear-gradient(180deg,rgba(2,6,23,0.92),rgba(7,11,24,0.6)_60%,transparent)]"></div>
+    </Fragment>
+  </Hero>
+
+  <Stats
+    title="Sections worth maintaining on this page"
+    stats={[
+      { amount: 'A', title: 'Short bio', icon: 'tabler:user-circle' },
+      { amount: 'B', title: 'Research interests', icon: 'tabler:star' },
+      { amount: 'C', title: 'Projects and outputs', icon: 'tabler:rocket' },
+      { amount: 'D', title: 'Collaboration and contact', icon: 'tabler:mail' },
+    ]}
+  />
+
+  <Content
+    tagline="Profile Structure"
+    title="A practical astronomy research homepage usually includes these elements"
+    items={[
+      {
+        title: 'What you study',
+        description:
+          'Use one concise paragraph to explain your questions, targets, and methods instead of only listing a broad discipline name.',
+      },
+      {
+        title: 'What you are working on now',
+        description:
+          'List your current projects, datasets, observing plans, or paper stages so visitors can see your active direction immediately.',
+      },
+      {
+        title: 'What you have produced',
+        description:
+          'Later you can add papers, conference talks, posters, public code, reproducible notes, and data products.',
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Treat the profile page like a readable research identity card</h3>
+      Most visitors will stay on this page only briefly, so the order should be simple: who you are, what you study,
+      what you are doing now, and where to learn more.
+    </Fragment>
+
+    <Fragment slot="image">
+      <div class="rounded-3xl border border-slate-200 bg-white/85 p-8 dark:border-slate-800 dark:bg-slate-900/80">
+        <div class="space-y-4">
+          <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-950">
+            <div class="text-sm uppercase tracking-[0.2em] text-slate-500">Short Bio</div>
+            <div class="mt-2 font-semibold">One paragraph plus a few research keywords</div>
+          </div>
+          <div class="rounded-2xl border border-sky-100 bg-sky-50 p-4 dark:border-slate-800 dark:bg-slate-950">
+            <div class="text-sm uppercase tracking-[0.2em] text-sky-700 dark:text-sky-300">Current Work</div>
+            <div class="mt-2 font-semibold">Active projects, datasets, or observing plans</div>
+          </div>
+          <div class="rounded-2xl border border-amber-100 bg-amber-50 p-4 dark:border-slate-800 dark:bg-slate-950">
+            <div class="text-sm uppercase tracking-[0.2em] text-amber-700 dark:text-amber-300">Outputs</div>
+            <div class="mt-2 font-semibold">Papers, posters, code, and contact details</div>
+          </div>
+        </div>
+      </div>
+    </Fragment>
+  </Content>
+
+  <Features2
+    title="You can keep expanding the page with these blocks"
+    subtitle="This page does not need daily edits, but updating it once per semester or after a major milestone is very worthwhile."
+    columns={3}
+    items={[
+      {
+        title: 'Education and affiliation',
+        description:
+          'State your institution, group, advisor, or collaborators clearly, and add office or lab information if useful.',
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Research themes and methods',
+        description:
+          'Describe targets, observing techniques, data types, and methods in a few readable lines.',
+        icon: 'tabler:telescope',
+      },
+      {
+        title: 'Selected work',
+        description:
+          'Add papers, posters, talks, open repositories, and public datasets over time.',
+        icon: 'tabler:file-analytics',
+      },
+      {
+        title: 'Collaboration and contact',
+        description:
+          'Email, GitHub, Google Scholar, ORCID, or a lab page are all good anchors here.',
+        icon: 'tabler:mail-share',
+      },
+      {
+        title: 'Teaching and mentoring',
+        description:
+          'If you have TA work, course projects, mentoring, or public lecture notes, this is a good place for them.',
+        icon: 'tabler:presentation',
+      },
+      {
+        title: 'External links',
+        description:
+          'Cross-link the journal, toolbox, publication lists, and code repositories so the whole site feels connected.',
+        icon: 'tabler:link',
+      },
+    ]}
+  />
+</Layout>

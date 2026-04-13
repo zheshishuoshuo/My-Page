@@ -1,0 +1,167 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Content from '~/components/widgets/Content.astro';
+
+const metadata = {
+  title: 'Toolbox',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Research Tools"
+    actions={[
+      { text: 'Open Journal', href: '/journal', variant: 'primary' },
+      { text: 'Research Profile', href: '/about' },
+    ]}
+  >
+    <Fragment slot="title">Collect your most-used databases, analysis tools, and writing links in one place</Fragment>
+
+    <Fragment slot="subtitle">
+      This page works best when it is organized around your workflow rather than around random website names. That makes
+      it faster to use during literature search, target checking, data reduction, and writing.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,0.16),transparent_20%),radial-gradient(circle_at_90%_20%,rgba(245,158,11,0.16),transparent_18%),linear-gradient(180deg,rgba(15,23,42,0.04),transparent_65%)] dark:bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.18),transparent_20%),radial-gradient(circle_at_90%_20%,rgba(251,191,36,0.12),transparent_18%),linear-gradient(180deg,rgba(2,6,23,0.92),rgba(7,11,24,0.65)_60%,transparent)]"></div>
+    </Fragment>
+  </Hero>
+
+  <Features2
+    title="Literature and databases"
+    subtitle="Start with the sites you open repeatedly, especially for literature search, source lookup, and catalog work."
+    columns={2}
+    items={[
+      {
+        title: 'NASA ADS',
+        description: 'A core entry point for astronomy literature, citations, and paper abstracts.',
+        icon: 'tabler:file-text',
+        callToAction: { text: 'Open', href: 'https://ui.adsabs.harvard.edu/' },
+      },
+      {
+        title: 'SIMBAD',
+        description: 'Quickly check object information, aliases, references, and cross-identifications.',
+        icon: 'tabler:search',
+        callToAction: { text: 'Open', href: 'https://simbad.cds.unistra.fr/simbad/' },
+      },
+      {
+        title: 'VizieR',
+        description: 'Useful for catalog access, cross-matching, and sample building.',
+        icon: 'tabler:database',
+        callToAction: { text: 'Open', href: 'https://vizier.cds.unistra.fr/' },
+      },
+      {
+        title: 'arXiv astro-ph',
+        description: 'A simple place to track fresh preprints and keep up with new directions.',
+        icon: 'tabler:notebook',
+        callToAction: { text: 'Open', href: 'https://arxiv.org/archive/astro-ph' },
+      },
+    ]}
+  />
+
+  <Features2
+    title="Target checks and visualization"
+    subtitle="These links fit naturally into observing preparation, target validation, and field inspection."
+    columns={2}
+    items={[
+      {
+        title: 'ESASky',
+        description: 'Browse multi-wavelength sky images, mission coverage, and archive products for fast reconnaissance.',
+        icon: 'tabler:world-latitude',
+        callToAction: { text: 'Open', href: 'https://sky.esa.int/' },
+      },
+      {
+        title: 'Aladin Lite',
+        description: 'Overlay catalogs and images to inspect target position, nearby sources, and field environment.',
+        icon: 'tabler:search',
+        callToAction: { text: 'Open', href: 'https://aladin.cds.unistra.fr/AladinLite/' },
+      },
+      {
+        title: 'Stellarium Web',
+        description: 'Useful for quick checks of sky regions, target positions, and time-dependent sky context.',
+        icon: 'tabler:star',
+        callToAction: { text: 'Open', href: 'https://stellarium-web.org/' },
+      },
+      {
+        title: 'MAST Portal',
+        description: 'If you often use HST, TESS, or JWST data, it helps to pin the archive entry here.',
+        icon: 'tabler:database',
+        callToAction: { text: 'Open', href: 'https://mast.stsci.edu/portal/Mashup/Clients/Mast/Portal.html' },
+      },
+    ]}
+  />
+
+  <Content
+    tagline="Analysis Stack"
+    title="Analysis tools are most useful when you also note how you use them"
+    items={[
+      {
+        title: 'Astropy',
+        description: 'A foundational astronomy Python ecosystem covering coordinates, time, tables, fitting, and more.',
+        callToAction: { text: 'Docs', href: 'https://docs.astropy.org/' },
+      },
+      {
+        title: 'Lightkurve',
+        description: 'Helpful for TESS and Kepler light-curve work, especially if your notes involve time-domain analysis.',
+        callToAction: { text: 'Docs', href: 'https://lightkurve.github.io/lightkurve/' },
+      },
+      {
+        title: 'TOPCAT',
+        description: 'Efficient for table inspection, cross-matching, and quick visualization, especially when paired with journal notes.',
+        callToAction: { text: 'Site', href: 'https://www.star.bris.ac.uk/~mbt/topcat/' },
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Do not only save links. Add one line about what each tool does for you.</h3>
+      When you come back months later, that note will help you remember not just where the tool lives, but why it belongs in your workflow.
+    </Fragment>
+
+    <Fragment slot="image">
+      <div class="rounded-3xl border border-slate-200 bg-white/85 p-8 dark:border-slate-800 dark:bg-slate-900/80">
+        <div class="space-y-4">
+          <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-950">
+            <div class="text-sm uppercase tracking-[0.2em] text-slate-500">Query</div>
+            <div class="mt-2 font-semibold">ADS / SIMBAD / VizieR</div>
+          </div>
+          <div class="rounded-2xl border border-sky-100 bg-sky-50 p-4 dark:border-slate-800 dark:bg-slate-950">
+            <div class="text-sm uppercase tracking-[0.2em] text-sky-700 dark:text-sky-300">Inspect</div>
+            <div class="mt-2 font-semibold">ESASky / Aladin / Stellarium</div>
+          </div>
+          <div class="rounded-2xl border border-amber-100 bg-amber-50 p-4 dark:border-slate-800 dark:bg-slate-950">
+            <div class="text-sm uppercase tracking-[0.2em] text-amber-700 dark:text-amber-300">Analyze</div>
+            <div class="mt-2 font-semibold">Astropy / Lightkurve / TOPCAT</div>
+          </div>
+        </div>
+      </div>
+    </Fragment>
+  </Content>
+
+  <Features2
+    title="Writing and collaboration"
+    subtitle="Keeping paper writing, references, and code collaboration together works especially well over the long term."
+    columns={3}
+    items={[
+      {
+        title: 'Overleaf',
+        description: 'A paper and report writing entry point.',
+        icon: 'tabler:pencil-star',
+        callToAction: { text: 'Open', href: 'https://www.overleaf.com/' },
+      },
+      {
+        title: 'Zotero',
+        description: 'Reference management and reading organization.',
+        icon: 'tabler:notebook',
+        callToAction: { text: 'Open', href: 'https://www.zotero.org/' },
+      },
+      {
+        title: 'GitHub',
+        description: 'A common home for code, scripts, and note repositories.',
+        icon: 'tabler:brand-github',
+        callToAction: { text: 'Open', href: 'https://github.com/' },
+      },
+    ]}
+  />
+</Layout>

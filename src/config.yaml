@@ -1,0 +1,72 @@
+site:
+  name: Astro Research Notes
+  site: 'https://example.com'
+  base: '/'
+  trailingSlash: false
+
+  googleSiteVerificationId: null
+
+# Default SEO metadata
+metadata:
+  title:
+    default: Astro Research Notes
+    template: '%s | Astro Research Notes'
+  description: 'A personal academic site for an astronomy research homepage, working journal, and frequently used tools.'
+  robots:
+    index: true
+    follow: true
+  openGraph:
+    site_name: Astro Research Notes
+    images:
+      - url: '~/assets/images/default.png'
+        width: 1200
+        height: 628
+    type: website
+  twitter:
+    handle: null
+    site: null
+    cardType: summary_large_image
+
+i18n:
+  language: en
+  textDirection: ltr
+
+apps:
+  blog:
+    isEnabled: true
+    postsPerPage: 5
+
+    post:
+      isEnabled: true
+      permalink: '/journal/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
+      robots:
+        index: true
+
+    list:
+      isEnabled: true
+      pathname: 'journal' # Blog main path
+      robots:
+        index: true
+
+    category:
+      isEnabled: true
+      pathname: 'topic' # Category main path
+      robots:
+        index: true
+
+    tag:
+      isEnabled: true
+      pathname: 'tag' # Tag main path
+      robots:
+        index: false
+
+    isRelatedPostsEnabled: true
+    relatedPostsCount: 4
+
+analytics:
+  vendors:
+    googleAnalytics:
+      id: null # or "G-XXXXXXXXXX"
+
+ui:
+  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"

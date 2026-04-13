@@ -1,0 +1,211 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Content from '~/components/widgets/Content.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Astronomy Research Homepage',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Astronomy Research Homepage"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Browse Journal',
+        href: '/journal',
+      },
+      { text: 'Open Toolbox', href: '/tools' },
+    ]}
+  >
+    <Fragment slot="title">
+      Bring your homepage, research journal, and daily tools
+      <span class="text-accent dark:text-white">into one academic workspace</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      This site can do three jobs at once: present your research profile, keep a running record of your work, and
+      collect the astronomy databases and analysis tools you use most often.
+    </Fragment>
+
+    <Fragment slot="content">
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-3 text-sm text-slate-700 dark:text-slate-200">
+        <span class="rounded-full border border-sky-200 bg-white/80 px-4 py-2 dark:border-slate-700 dark:bg-slate-900/70">
+          Research profile
+        </span>
+        <span class="rounded-full border border-sky-200 bg-white/80 px-4 py-2 dark:border-slate-700 dark:bg-slate-900/70">
+          Observation notes
+        </span>
+        <span class="rounded-full border border-sky-200 bg-white/80 px-4 py-2 dark:border-slate-700 dark:bg-slate-900/70">
+          Data reduction logs
+        </span>
+        <span class="rounded-full border border-sky-200 bg-white/80 px-4 py-2 dark:border-slate-700 dark:bg-slate-900/70">
+          Tool and database hub
+        </span>
+      </div>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.22),transparent_35%),radial-gradient(circle_at_20%_30%,rgba(14,165,233,0.16),transparent_20%),linear-gradient(180deg,rgba(15,23,42,0.06),transparent_60%)] dark:bg-[radial-gradient(circle_at_top,rgba(96,165,250,0.28),transparent_28%),radial-gradient(circle_at_20%_30%,rgba(56,189,248,0.14),transparent_18%),linear-gradient(180deg,rgba(2,6,23,0.95),rgba(7,11,24,0.72)_58%,transparent)]"></div>
+    </Fragment>
+  </Hero>
+
+  <Note
+    title="Suggested setup"
+    description="Keep stable information on the homepage, use the journal for process notes, and let the toolbox collect your high-frequency links. That way the site is both public-facing and genuinely useful in daily research."
+  />
+
+  <Stats
+    title="What this site is built to hold"
+    stats={[
+      { amount: '01', title: 'Research themes and projects', icon: 'tabler:telescope' },
+      { amount: '02', title: 'Journal entries and weekly notes', icon: 'tabler:notebook' },
+      { amount: '03', title: 'Observing and data reduction', icon: 'tabler:chart-line' },
+      { amount: '04', title: 'Databases and daily tools', icon: 'tabler:tool' },
+    ]}
+  />
+
+  <Content
+    id="research"
+    tagline="Research Scope"
+    title="Use the homepage for stable information you will reuse for a long time"
+    items={[
+      {
+        title: 'Research directions',
+        description:
+          'Summarize the questions you care about in two to four clear lines, such as time-domain astronomy, stellar physics, galaxy evolution, observing methods, or data analysis.',
+      },
+      {
+        title: 'Current projects',
+        description:
+          'List the projects, observing plans, datasets, or paper stages you are actively working on so visitors can quickly see your current focus.',
+      },
+      {
+        title: 'Selected outputs',
+        description:
+          'Later you can add papers, posters, talks, code repositories, and public datasets so the homepage becomes a true academic profile.',
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Start with the things that do not change every week</h3>
+      The homepage is best for your bio, research interests, project overview, and external links. That lets a first-time
+      visitor understand your work quickly.
+    </Fragment>
+
+    <Fragment slot="image">
+      <div class="rounded-3xl border border-slate-200/80 bg-white/85 p-8 shadow-[0_20px_80px_rgba(15,23,42,0.08)] dark:border-slate-800 dark:bg-slate-900/80">
+        <div class="grid gap-4">
+          <div class="rounded-2xl border border-sky-100 bg-sky-50 p-4 dark:border-slate-800 dark:bg-slate-950">
+            <div class="text-sm uppercase tracking-[0.2em] text-sky-700 dark:text-sky-300">Research Focus</div>
+            <div class="mt-2 text-lg font-semibold">State the core astronomy questions you work on</div>
+          </div>
+          <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-950">
+            <div class="text-sm uppercase tracking-[0.2em] text-slate-600 dark:text-slate-400">Project Snapshot</div>
+            <div class="mt-2 text-lg font-semibold">Break ongoing work into quick, readable sections</div>
+          </div>
+          <div class="rounded-2xl border border-amber-100 bg-amber-50 p-4 dark:border-slate-800 dark:bg-slate-950">
+            <div class="text-sm uppercase tracking-[0.2em] text-amber-700 dark:text-amber-300">Outputs</div>
+            <div class="mt-2 text-lg font-semibold">Let papers, posters, code, and data accumulate over time</div>
+          </div>
+        </div>
+      </div>
+    </Fragment>
+  </Content>
+
+  <Features2
+    title="What belongs in the research journal"
+    subtitle="Unlike a polished paper, the journal can preserve process, failed attempts, and intermediate judgments. Those notes often become the most valuable later."
+    tagline="Journal Workflow"
+    columns={3}
+    items={[
+      {
+        title: 'Observing plans',
+        description:
+          'Observation windows, target selection, weather constraints, instrument availability, and schedule changes all work well as short entries.',
+        icon: 'tabler:telescope',
+      },
+      {
+        title: 'Data reduction',
+        description:
+          'Record scripts, parameters, anomaly handling, and version differences so later reproduction is much easier.',
+        icon: 'tabler:binary-tree-2',
+      },
+      {
+        title: 'Paper notes',
+        description:
+          'Keep key figures, core methods, links to your own project, and the next questions worth following up.',
+        icon: 'tabler:file-text',
+      },
+      {
+        title: 'Research ideas',
+        description:
+          'Temporary hypotheses, testable directions, and half-formed thoughts all deserve a place before they disappear.',
+        icon: 'tabler:bulb',
+      },
+      {
+        title: 'Weekly reviews',
+        description:
+          'A short weekly summary naturally builds a clear timeline of your research progress.',
+        icon: 'tabler:calendar-stats',
+      },
+    ]}
+  />
+
+  <Features2
+    title="Organize the toolbox by workflow, not by random bookmarks"
+    subtitle="Group links around searching data, viewing the sky, analyzing data, and writing papers. That structure is much easier to maintain."
+    tagline="Tools Hub"
+    items={[
+      {
+        title: 'Databases and literature',
+        description:
+          'For example ADS, SIMBAD, and VizieR for literature lookup, source queries, and catalog cross-matching.',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Sky view and target checks',
+        description:
+          'For example ESASky, Aladin, and Stellarium for locating targets, checking coverage, and understanding field context.',
+        icon: 'tabler:world-latitude',
+      },
+      {
+        title: 'Analysis and code',
+        description:
+          'For example Astropy, Lightkurve, and TOPCAT so your most-used analysis frameworks and docs stay in one place.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Writing and collaboration',
+        description:
+          'For example Overleaf, Zotero, and GitHub for paper drafting, references, and code collaboration.',
+        icon: 'tabler:pencil-star',
+      },
+    ]}
+  />
+
+  <BlogLatestPosts
+    title="Latest journal entries"
+    linkText="View all entries"
+    information="This section automatically shows your latest journal posts. You can turn experiment notes, paper notes, data-cleaning logs, and weekly updates into Markdown entries here."
+    count={3}
+  />
+
+  <CallToAction
+    title="The best next step is to replace the placeholders with your real work"
+    subtitle="Start by updating your research directions and bio, then write your first real journal entry, and slowly grow the toolbox. The site will quickly stop feeling like a template and start feeling like your workspace."
+    actions={[
+      { text: 'Research Profile', href: '/about' },
+      { text: 'Toolbox', href: '/tools' },
+    ]}
+  />
+</Layout>

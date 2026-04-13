@@ -1,0 +1,58 @@
+---
+import { Icon } from 'astro-icon/components';
+
+import { UI } from 'astrowind:config';
+
+export interface Props {
+  label?: string;
+  class?: string;
+  iconClass?: string;
+  iconName?: string;
+}
+
+const {
+  label = 'Toggle between Dark and Light mode',
+  class:
+    className = 'text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center',
+  iconClass = 'w-6 h-6',
+  iconName = 'tabler:sun',
+} = Astro.props;
+---
+
+{
+  !(UI.theme && UI.theme.endsWith(':only')) && (
+    <button type="button" class={className} aria-label={label} data-aw-toggle-color-scheme>
+      <Icon name={iconName} class={iconClass} />
+    </button>
+  )
+}
+
+<script is:inline define:vars={{ defaultTheme: UI.theme || 'system' }}>
+  if (!window.__awThemeToggleBound) {
+    window.__awThemeToggleBound = true;
+
+    const syncTheme = () => {
+      const storedTheme = localStorage.theme;
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if ((defaultTheme && defaultTheme.endsWith(':only')) || (!storedTheme && defaultTheme !== 'system')) {
+        document.documentElement.classList.toggle('dark', defaultTheme.replace(':only', '') === 'dark');
+        return;
+      }
+
+      document.documentElement.classList.toggle('dark', storedTheme ? storedTheme === 'dark' : systemPrefersDark);
+    };
+
+    document.addEventListener('click', (event) => {
+      const trigger = event.target instanceof Element ? event.target.closest('[data-aw-toggle-color-scheme]') : null;
+      if (!trigger) return;
+      if (defaultTheme.endsWith(':only')) return;
+
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.theme = isDark ? 'dark' : 'light';
+    });
+
+    syncTheme();
+    document.addEventListener('astro:after-swap', syncTheme);
+  }
+</script>
