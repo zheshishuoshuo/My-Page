@@ -1,7 +1,7 @@
 site:
   name: Astro Research Notes
-  site: 'https://example.com'
-  base: '/'
+  site: 'https://zheshishuoshuo.github.io'
+  base: '/My-Page'
   trailingSlash: false
 
   googleSiteVerificationId: null
