@@ -149,20 +149,20 @@ const sections = [
   </Hero>
 
   <section class="relative max-w-7xl mx-auto px-4 sm:px-6 pb-16 md:pb-24">
-    <div class="grid gap-8 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-12">
-      <aside class="lg:sticky lg:top-24 lg:self-start">
-        <div class="rounded-3xl border border-slate-200 bg-white/85 p-5 shadow-[0_20px_60px_rgba(15,23,42,0.06)] dark:border-slate-800 dark:bg-slate-900/85">
+    <div class="grid gap-8 md:grid-cols-[220px_minmax(0,1fr)] md:gap-8 xl:grid-cols-[240px_minmax(0,1fr)] xl:gap-12">
+      <aside class="md:sticky md:top-24 md:self-start">
+        <div class="rounded-3xl border border-slate-200 bg-white/92 p-4 shadow-[0_20px_60px_rgba(15,23,42,0.08)] dark:border-slate-800 dark:bg-slate-900/92 md:min-h-[70vh]">
           <div class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-slate-400">
             Toolbox Nav
           </div>
           <nav class="mt-4">
-            <ul class="flex gap-3 overflow-x-auto lg:block lg:space-y-2">
+            <ul class="flex gap-3 overflow-x-auto md:block md:space-y-2">
               {
                 sections.map((section) => (
                   <li class="shrink-0">
                     <a
                       href={`#${section.id}`}
-                      class="flex min-w-max items-center rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700 transition hover:border-sky-300 hover:bg-sky-50 hover:text-sky-900 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200 dark:hover:border-sky-800 dark:hover:bg-slate-900"
+                      class="flex min-w-max items-center rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700 transition hover:border-sky-300 hover:bg-sky-50 hover:text-sky-900 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200 dark:hover:border-sky-800 dark:hover:bg-slate-900 md:min-w-0"
                     >
                       <span class="mr-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-white text-sky-700 shadow-sm dark:bg-slate-900 dark:text-sky-300">
                         <Icon
