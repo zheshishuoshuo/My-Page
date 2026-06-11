@@ -1,0 +1,43 @@
+# Project Instructions
+
+- Write all user-facing website copy in English by default, including page text, navigation labels, button labels, alt text, metadata descriptions, and JavaScript status messages.
+- Keep the site lightweight and static unless a future requirement clearly needs a framework.
+- Preserve source attribution for external scientific imagery used on the site.
+
+<!-- stash-plugin:begin -->
+# Stash
+
+You have the `stash` CLI on your PATH. Run `stash --help` to see commands. Use it to read transcripts, pages, and history from your team's shared Stash workspace.
+
+Your activity in this repo is streamed to that workspace, so teammates' agents and humans can see what you're working on.
+
+## What a Skill is
+
+A **Skill** is a *special folder* - one containing a SKILL.md - holding related artifacts (pages, files, tables) with its own access control and an optional public URL when published. Use one when you're publishing a *collection* of related things together - a project writeup with its supporting files, a research thread with its sources, a session transcript plus the files it produced.
+
+A Skill is **not** a wrapper to slap on every single file you happen to share. One-item Skills clutter Discover and defeat the model.
+
+## How to share things
+
+- **One file your teammate should look at** -> `stash files upload <path> --json` and hand them the returned `app_url`. No Skill needed.
+- **A folder / project into the workspace** -> `stash upload <path> --json`. Returns the folder `app_url`. No Skill created by default.
+- **A curated bundle as one shareable thing** -> `stash upload <path> --skill "<title>" --json`, or `stash skills create "<name>" --public` to start a fresh one. Returns the Skill `url`.
+- **A coding session (transcript + touched files)** -> `stash share <session_id>`. Sessions are inherently a bundle.
+
+Run `stash prompts agent-guidance` any time you want this guidance reprinted in full.
+
+## Browsing
+
+Use `stash vfs` when you want to browse Stash like a filesystem without mounting anything into the OS. It accepts bash-shaped commands over the virtual Stash tree:
+- `stash vfs ls /`
+- `stash vfs "find /workspaces -maxdepth 3 -type f"`
+- `stash vfs "rg \"query\" /workspaces"`
+- `stash vfs "cat '/workspaces/<workspace>/README.md' | sed -n '1,80p'"`
+
+## Common reads (all support `--json`)
+
+- `stash sessions search "<query>"` - full-text search across transcripts
+- `stash sessions query --limit 20` - recent events
+- `stash sessions agents` - who's been active
+- `stash files pages --all` - shared pages
+<!-- stash-plugin:end -->

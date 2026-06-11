@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Diary and notes page for Shuo Zhang, collecting research logs, reading notes, and short reflections."
+    >
+    <title>Diary | Shuo Zhang</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="page-header page-header--quiet">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav__brand" href="index.html">Shuo Zhang</a>
+        <div class="nav__links">
+          <a href="index.html">Home</a>
+          <a href="research.html">Research</a>
+          <a href="diary.html" aria-current="page">Diary</a>
+          <a href="contact.html">Contact</a>
+          <a href="files/Shuo_Zhang_CV.pdf">CV</a>
+        </div>
+      </nav>
+
+      <section class="page-hero">
+        <p class="eyebrow">Diary</p>
+        <h1>Research Notes and Small Logs</h1>
+        <p>
+          A quieter place for reading notes, research logs, implementation details, and short reflections that do not need to become full papers.
+        </p>
+      </section>
+    </header>
+
+    <main id="main">
+      <section class="section" aria-labelledby="diary-title">
+        <div class="container">
+          <div class="section__heading section__heading--split">
+            <div>
+              <p class="section-kicker">Notebook</p>
+              <h2 id="diary-title">Entries to Grow Over Time</h2>
+            </div>
+            <p>
+              The entries below are placeholders for the structure of the page. They can be replaced with real notes whenever a research idea, reading trail, or small technical lesson is worth keeping.
+            </p>
+          </div>
+
+          <div class="note-grid">
+            <article class="note-card">
+              <p class="note-card__meta">Research Log</p>
+              <h3>Selection Functions in Lens Samples</h3>
+              <p>
+                Notes on how lens-finding methods change the population we actually observe, and how that should enter hierarchical inference.
+              </p>
+              <a class="inline-link" href="research.html#gaia-multi-peak">Related Research</a>
+            </article>
+
+            <article class="note-card">
+              <p class="note-card__meta">Reading Notes</p>
+              <h3>Microlensing as a Population Probe</h3>
+              <p>
+                A place to collect useful arguments, assumptions, and caveats when using microlensing statistics to constrain stellar mass components.
+              </p>
+              <a class="inline-link" href="research.html#microlensed-quasars">Related Project</a>
+            </article>
+
+            <article class="note-card">
+              <p class="note-card__meta">Technical Notes</p>
+              <h3>Reproducible Scientific Workflows</h3>
+              <p>
+                Short implementation notes on Python analysis pipelines, plotting conventions, server workflows, and experiment bookkeeping.
+              </p>
+              <a class="inline-link" href="research.html">Research Page</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tint" aria-labelledby="categories-title">
+        <div class="container notes-layout">
+          <div class="section__heading notes-layout__intro">
+            <p class="section-kicker">Categories</p>
+            <h2 id="categories-title">What Belongs Here</h2>
+          </div>
+
+          <div class="timeline" aria-label="Diary categories">
+            <article class="timeline__item">
+              <time>Research</time>
+              <div>
+                <h3>Idea Logs</h3>
+                <p>Small hypotheses, failed attempts, model choices, and questions to revisit.</p>
+              </div>
+            </article>
+            <article class="timeline__item">
+              <time>Reading</time>
+              <div>
+                <h3>Paper Notes</h3>
+                <p>Concise summaries of papers, methods, assumptions, and useful references.</p>
+              </div>
+            </article>
+            <article class="timeline__item">
+              <time>Life</time>
+              <div>
+                <h3>Personal Fragments</h3>
+                <p>Occasional notes outside research, kept light and separate from the CV-style homepage.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; <span id="current-year">2026</span> Shuo Zhang. Built with care in a quiet corner of the web.</p>
+      <p>
+        Hero image:
+        <a href="https://science.nasa.gov/mission/hubble/science/science-behind-the-discoveries/hubble-gravitational-lenses/" target="_blank" rel="noreferrer">
+          NASA/ESA Hubble, Abell 370
+        </a>.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
